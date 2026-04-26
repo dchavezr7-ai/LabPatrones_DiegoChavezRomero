@@ -1,0 +1,71 @@
+public abstract class Pato {
+    
+    protected Cuaqueable cuaqueable;
+    protected Volable volable;
+    
+    public Pato() {
+    }
+    
+    public void nadar() {
+        System.out.println("TODOS LOS PATOS NADAN");
+    }
+    
+    public abstract void mostrar();
+    
+   
+    public void realizarVuelo() {
+        volable.volar();
+    }
+    
+    public void realizarCuaqueo() {
+        cuaqueable.cuaquear();
+    }
+
+    public void setVolable(Volable volable) {
+        this.volable = volable;
+    }
+    
+    public void setCuaqueable(Cuaqueable cuaqueable) {
+        this.cuaqueable = cuaqueable;
+    }
+}
+
+public class PatoCabezaRoja extends Pato {
+
+    public PatoCabezaRoja() {
+        
+        volable = new VuelaConAlas();
+        cuaqueable = new Cuaqueo();
+    }
+
+    @Override
+    public void mostrar() {
+        System.out.println("Yo soy un real PATO CABEZA ROJA");
+    }
+}
+
+public class PatoDeGoma extends Pato {
+    
+    public PatoDeGoma() {
+        volable = new NoVuela();
+        cuaqueable = new Chirreo();
+    }
+
+    @Override
+    public void mostrar() {
+        System.out.println("Yo soy un Patito de goma");
+    }
+}
+
+public class PatoReal extends Pato {
+    
+    public PatoReal() {
+        volable = new VuelaConAlas();
+        cuaqueable = new Cuaqueo();
+    }
+
+    @Override
+    public void mostrar() {
+        System.out.println("Yo soy un verdadero PATO REAL");
+    }
+}
